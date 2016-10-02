@@ -19,11 +19,12 @@ namespace AkkaAccountDemo
 				var msg = message as Messages.Transaction;
 
 				var balance = msg.Balance - msg.Amount;
-				msg.Balance = balance;
 
-				writerActor.Tell (msg);
+                Messages.Transaction newMsg = new Messages.Transaction(balance, msg.Amount, msg.TransactionCode);
 
-				Sender.Tell (msg, Self);
+				writerActor.Tell (newMsg);
+
+				Sender.Tell (newMsg, Self);
 			}
 		}
 	}

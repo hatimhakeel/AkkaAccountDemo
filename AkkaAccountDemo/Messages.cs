@@ -14,7 +14,7 @@ namespace AkkaAccountDemo
 			}
 
 			public EnumsAndConstants.TransactionTypes TransactionCode { get; private set; }
-			public decimal Balance { get; set; }
+			public decimal Balance { get; private set; }
 			public decimal Amount { get; private set; }
 		}
 
